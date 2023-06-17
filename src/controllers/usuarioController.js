@@ -4,7 +4,7 @@ function cadastrarView(req, res){
     res.render("pessoa/cadastrar.html", {});
 }
 
-function cadastrarPessoa(req, res){
+function cadastrarUsuario(req, res){
     let pessoa = {
         nome: req.body.nome,
         sobrenome: req.body.sobrenome,
