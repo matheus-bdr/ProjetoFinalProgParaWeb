@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize');
 const database = require('../db');
+const { FOREIGNKEYS } = require('sequelize/types/query-types');
  
-const Pessoa = database.define('pessoa', {
+const Conta = database.define('conta', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -12,27 +13,19 @@ const Pessoa = database.define('pessoa', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    sobrenome: {
-        type: Sequelize.STRING,
+    dataDeCriaco: {
+        type: Sequelize.DATETIME,
         allowNull: false
     },
-    cpf: {
-        type: Sequelize.STRING,
+    saldo: {
+        type: Sequelize.FLOAT,
         allowNull: false,
         unique: true
     },
-    email: {
+    donoDaConta: {
         type: Sequelize.STRING
-    },
-    telefone: {
-        type: Sequelize.INTEGER
-    },
-    altura: {
-        type: Sequelize.DOUBLE
-    },
-    peso: {
-        type: Sequelize.DOUBLE
-    },
+        
+    }
 })
  
-module.exports = Pessoa;
+module.exports = Conta;

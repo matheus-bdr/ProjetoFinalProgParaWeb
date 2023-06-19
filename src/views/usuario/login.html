@@ -10,15 +10,88 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="../style/style.css">
 </head>
 
 <body>
   <header>
-    <!-- place navbar here -->
+    <nav class="navbar navbar-expand-lg cor1bg">
+      <div class="container-fluid">
+        <a class="navbar-brand text-white" href="#"> <strong>Bank Middle Bedas</strong></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="#"> <strong>Home</strong></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#"><strong>Features</strong> </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#"><strong>Pricing</strong> </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white cor1bg" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <strong>Dropdown link</strong>
+              </a>
+              <ul class="dropdown-menu cor2bg">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   </header>
   <main>
+    <div class="container-fluid mt-5">
+      <!--  {{#usuario}}
+      <div class="alert alert-success alert-dismissible">
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          <strong>{{usuario.result}}</strong> cadastrado(a) com sucesso!
+      </div>
+      {{/usuario}}
 
+      {{#erro}}
+      <div class="alert alert-danger alert-dismissible">
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          <strong>{{erro}}</strong> não foi possível concluir o cadastro.
+      </div>
+      {{/erro}} -->
+
+      <h1 class="text-center p-5 text-uppercase"><strong>Olá novamente!</strong></h1>
+      <h3 class="text-center text-uppercase"><strong>faça login com seu email e senha</span>
+      </h3>
+      </strong>
+
+      <form method="post" action="/usuario/login">
+        <div class="row justify-content-around m-3 text-dark">
+          <div class="col-6 ">
+            <div>
+              <label class="form-label" for="nome">email</label>
+              <input class="form-control formsCor" type="text" id="email" name="email">
+            </div>
+            <div>
+              <label class="form-label" for="Cidade">Senha: </label>
+              <input class="form-control formsCor" type="text" id="senha" name="senha">
+            </div>
+  
+        </div>
+        <div class="col-6">
+          <div class="d-grid m-5">
+            <button type="submit" class="btn buttonCor btn-block "><strong>Entrar</strong></button>
+            <p>Não é cadastrado? <a href="#">Cadastre-se agora</a></p>
+          </div>
+        </div>
+      </form>
+    </div>
+    
   </main>
   <footer>
     <!-- place footer here -->
@@ -26,11 +99,11 @@
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-  </script>
+    </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
     integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-  </script>
+    </script>
 </body>
 
 </html>

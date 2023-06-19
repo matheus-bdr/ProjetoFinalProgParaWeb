@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
-const pessoaController = require('../controllers/pessoaController');
+const usuarioController = require('../controllers/usuarioController');
 
-router.get('/pessoa/cadastrar', pessoaController.cadastrarView);
-router.post('/pessoa/cadastrar', pessoaController.cadastrarPessoa);
+router.get('/usuario/cadastrar', usuarioController.cadastrarUsuarioView);
+router.post('/usuario/cadastrar', usuarioController.cadastrarUsuario);
 
-router.get('/pessoa/listar', pessoaController.listarView);
+router.get('/usuario/listar', usuarioController.listarUsuarioView);
 
-router.get('/pessoa/editar/:id', pessoaController.editarView);
-router.post('/pessoa/editar', pessoaController.editarPessoa);
+router.get('/usuario/editar/:id', usuarioController.editarUsuarioView);
+router.post('/usuario/editar', usuarioController.editarUsuario);
 
 module.exports = router;

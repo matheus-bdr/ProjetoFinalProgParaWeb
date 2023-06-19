@@ -30,4 +30,29 @@
     color: #B9D9C0;
 }
 
+.formsCor {
+    border: 2px solid #197327;
+    box-shadow: 4px 4px 0 #197327;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    width: 100%;
 
+    
+}
+
+.buttonCor {
+    border: 2px solid #197327;
+    box-shadow: 4px 4px 0 #197327;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    background: #B9D9C0;
+    color: #197327;
+    
+}
+body {
+    background: linear-gradient(90deg, #fcfcfc 0%, #B9D9C0 100%);
+    padding: 0;
+  }
