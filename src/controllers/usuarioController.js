@@ -1,5 +1,4 @@
 const Usuario = require('../models/usuario');
-const Pessoa = require('../models/usuario')
 
 function cadastrarUsuarioView(req, res){
     res.render("pessoa/cadastrar.html", {});

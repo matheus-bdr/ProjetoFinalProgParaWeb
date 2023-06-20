@@ -1,5 +1,5 @@
-const Usuario = require('../models/conta');
-const Pessoa = require('../models/conta')
+const Conta = require('../models/conta');
+
 
 function criarContaView(req, res){
     res.render("conta/criar.html", {});
@@ -8,13 +8,13 @@ function criarContaView(req, res){
 function criarConta(req, res){
     let conta = {
         nome: req.body.nome,
-        dono: req.body.donoDaConta,
+        dono: req.body.dono,
         saldo: req.body.saldo,
-        dataDeCriacao: req.body.dataDeCriacao
+        dataDeCriacao: req.body.data
     }
     
     Conta.create(conta).then((result)=>{
-        res.render("usuario/cadastrar.html", {conta});
+        res.render("conta/criar.html", {conta});
     }).catch((err) => {
         console.log(err)
         let erro = err

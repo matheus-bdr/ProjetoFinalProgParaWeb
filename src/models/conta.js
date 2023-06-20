@@ -1,6 +1,5 @@
 const Sequelize = require('sequelize');
 const database = require('../db');
-const { FOREIGNKEYS } = require('sequelize/types/query-types');
  
 const Conta = database.define('conta', {
     id: {
@@ -14,7 +13,7 @@ const Conta = database.define('conta', {
         allowNull: false
     },
     dataDeCriaco: {
-        type: Sequelize.DATETIME,
+        type: Sequelize.STRING,
         allowNull: false
     },
     saldo: {
