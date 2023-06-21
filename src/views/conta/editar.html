@@ -116,7 +116,8 @@
         <h1 class="text-center p-5 text-uppercase"><strong>Abra a <span class="cor2txt">sua conta</span></strong></h1>
         </strong>
 
-        <form method="post" action="/conta/criar">
+        <form method="post" action="/conta/editar">
+            <input type="hidden" name="id" value="{{conta.id}}">
             <div class="row justify-content-around m-3">
                 <div class="col-6 ">
                     <div>
@@ -126,15 +127,16 @@
 
                     <div>
                         <label class="form-label" for="dataDeCriacao">Data de criação</label>
-                        <input class="form-control formsCor cor3txt" type="text" id="dataDeCriacao" name="dataDeCriacao">
+                        <input class="form-control formsCor cor3txt" type="date" id="dataDeCriacao" name="dataDeCriacao">
                     </div>
                     <div>
                         <label class="form-label" for="saldo">Saldo inicial</label>
                         <input class="form-control formsCor" type="number" id="saldo" name="saldo">
                     </div>
                     <div>
-                        <label class="form-label" for="nomeDonoConta">Confirme seu nome <span class="cor2txt">Inteiro</span></label>
-                        <input class="form-control formsCor" type="text" id="nomeDonoConta" name="nomeDonoConta">
+                        <label class="form-label" for="nomeDonoConta">Confirme seu nome <span
+                                class="cor2txt">Inteiro</span></label>
+                        <input class="form-control formsCor" type="text" id="nome" name="nomeDonoConta">
                     </div>
                 </div>
                 <div class="col-6">

@@ -1,4 +1,4 @@
-const Conta = require('../models/conta');
+const Banco = require('../models/conta');
 
 
 function criarContaView(req, res){
@@ -8,12 +8,15 @@ function criarContaView(req, res){
 function criarConta(req, res){
     let conta = {
         nome: req.body.nome,
-        dono: req.body.dono,
+        dono: req.body.nomeDonoConta,
+        criacao: req.body.dataDeCriacao,
         saldo: req.body.saldo,
-        dataDeCriacao: req.body.data
+        contatype: req.body.tipoDeConta,
+        senha: req.body.senha
+
     }
-    
-    Conta.create(conta).then((result)=>{
+    console.log(conta)
+    Banco.create(conta).then((result)=>{
         res.render("../views/conta/criar.html", {conta});
     }).catch((err) => {
         console.log(err)
@@ -23,8 +26,8 @@ function criarConta(req, res){
 }
 
 function listarContaView(req, res){
-    Conta.findAll().then((pessoas)=>{
-        res.render("../views/conta/ver.html", {pessoas});
+    Banco.findAll().then((contas)=>{
+        res.render("../views/conta/ver.html", {contas});
     }).catch((err) => {
         console.log(err)
         let erro = err
@@ -34,21 +37,23 @@ function listarContaView(req, res){
 
 function editarContaView(req, res){
     let id = req.params.id
-    let usuario;
-    Pessoa.findByPk(id).then(function(usuario){
-        res.render("../views/conta/moviment.html", {usuario});
+    let conta;
+    Banco.findByPk(id).then(function(conta){
+        res.render("../views/conta/editar.html", {conta});
     })
 }
 
 function editarConta(req, res) {
     let conta = {
         nome: req.body.nome,
-        dono: req.body.donoDaConta,
+        dono: req.body.nomeDonoConta,
+        criacao: req.body.dataDeCriacao,
         saldo: req.body.saldo,
-        dataDeCriacao: req.body.dataDeCriacao
+        contatype: req.body.tipoDeConta,
+        senha: req.body.senha
     }
 
-    Conta.update(
+    Banco.update(
         conta,
       {
         where: {
@@ -56,10 +61,10 @@ function editarConta(req, res) {
         },
       }
     ).then(function (sucesso) {
-        res.render("../views/conta/moviment.html", {usuario, sucesso});
+        res.render("../views/conta/editar.html", {conta, sucesso});
     })
     .catch(function (erro) {
-        res.render("../views/conta/moviment.html", {usuario, erro})
+        res.render("../views/conta/editar.html", {conta, erro})
     });
 
 }

@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const database = require('../db');
  
-const Conta = database.define('conta', {
+const Banco = database.define('conta', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -12,7 +12,11 @@ const Conta = database.define('conta', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    dataDeCriaco: {
+    dono: {
+        type: Sequelize.STRING
+        
+    },
+    criacao: {
         type: Sequelize.STRING,
         allowNull: false
     },
@@ -21,10 +25,14 @@ const Conta = database.define('conta', {
         allowNull: false,
         unique: true
     },
-    donoDaConta: {
+    contatype: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true
+    },
+    senha:{
         type: Sequelize.STRING
-        
     }
 })
  
-module.exports = Conta;
+module.exports = Banco;

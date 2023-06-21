@@ -113,7 +113,35 @@
         </nav>
     </header>
     <main>
-
+        <div class=" container-fluid p-5">
+            <h1>Olá, <span class="cor2txt">{{conta.nome}}</span>!</h1>
+            <h6>Veja aqui o seu cadastro</h6>
+        </div>
+        <div class="p-3">
+           
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">nome</th>
+                    <th scope="col">donoDaConta</th>
+                    <th scope="col">data</th>
+                    <th scope="col">saldo</th>
+                    <th scope="col">tipoDeConta</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {{#contas}}
+                  <tr>                   
+                    <td><a href="/conta/editar/{{id}}">{{nome}}</a></td>
+                    <td>{{dono}}</td>
+                    <td>{{criacao}}</td>
+                    <td>{{saldo}}</td>
+                    <td>{{contatype}}</td>
+                  </tr>
+                  {{/contas}}
+                </tbody>
+              </table>
     </main>
     <footer>
         <!-- place footer here -->
