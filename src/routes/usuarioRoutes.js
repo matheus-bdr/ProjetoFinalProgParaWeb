@@ -7,6 +7,7 @@ router.get('/usuario/cadastrar', usuarioController.cadastrarUsuarioView);
 router.post('/usuario/cadastrar', usuarioController.cadastrarUsuario);
 
 router.get('/usuario/listar', usuarioController.listarUsuarioView);
+router.post('/usuario/listar', usuarioController.listarUsuarioView);
 
 router.get('/usuario/editar/:id', usuarioController.editarUsuarioView);
 router.post('/usuario/editar', usuarioController.editarUsuario);

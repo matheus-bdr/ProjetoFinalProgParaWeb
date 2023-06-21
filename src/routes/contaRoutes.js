@@ -3,8 +3,8 @@ const router = express.Router();
 
 const contaController = require('../controllers/contaController');
 
-router.get('/conta/cadastrar', contaController.criarContaView);
-router.post('/conta/cadastrar', contaController.criarConta);
+router.get('/conta/criar', contaController.criarContaView);
+router.post('/conta/criar', contaController.criarConta);
 
 router.get('/conta/listar', contaController.listarContaView);
 

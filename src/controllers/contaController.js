@@ -2,7 +2,7 @@ const Conta = require('../models/conta');
 
 
 function criarContaView(req, res){
-    res.render("conta/criar.html", {});
+    res.render("../views/conta/criar.html", {});
 }
 
 function criarConta(req, res){
@@ -14,21 +14,21 @@ function criarConta(req, res){
     }
     
     Conta.create(conta).then((result)=>{
-        res.render("conta/criar.html", {conta});
+        res.render("../views/conta/criar.html", {conta});
     }).catch((err) => {
         console.log(err)
         let erro = err
-        res.render("conta/criar.html", {erro});
+        res.render("../views/conta/criar.html", {erro});
     })
 }
 
 function listarContaView(req, res){
     Conta.findAll().then((pessoas)=>{
-        res.render("Usuario/listar.html", {pessoas});
+        res.render("../views/conta/ver.html", {pessoas});
     }).catch((err) => {
         console.log(err)
         let erro = err
-        res.render("Usuario/listar.html", {erro});
+        res.render("../views/conta/ver.html", {erro});
     })
 }
 
@@ -36,7 +36,7 @@ function editarContaView(req, res){
     let id = req.params.id
     let usuario;
     Pessoa.findByPk(id).then(function(usuario){
-        res.render("usuario/editar.html", {usuario});
+        res.render("../views/conta/moviment.html", {usuario});
     })
 }
 
@@ -47,7 +47,7 @@ function editarConta(req, res) {
         saldo: req.body.saldo,
         dataDeCriacao: req.body.dataDeCriacao
     }
-    
+
     Conta.update(
         conta,
       {
@@ -56,10 +56,10 @@ function editarConta(req, res) {
         },
       }
     ).then(function (sucesso) {
-        res.render("usuario/editar.html", {usuario, sucesso});
+        res.render("../views/conta/moviment.html", {usuario, sucesso});
     })
     .catch(function (erro) {
-        res.render("usuario/editar.html", {usuario, erro})
+        res.render("../views/conta/moviment.html", {usuario, erro})
     });
 
 }

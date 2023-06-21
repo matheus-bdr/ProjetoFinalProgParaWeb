@@ -1,7 +1,7 @@
-const Usuario = require('../models/usuario');
+const User = require('../models/usuario');
 
 function cadastrarUsuarioView(req, res){
-    res.render("pessoa/cadastrar.html", {});
+    res.render("../views/usuario/cadastrar.html", {});
 }
 
 function cadastrarUsuario(req, res){
@@ -18,31 +18,31 @@ function cadastrarUsuario(req, res){
         complemento: req.body.complemento,
         numero: req.body.numero
     }
-    
-    Usuario.create(usuario).then((result)=>{
-        res.render("usuario/cadastrar.html", {usuario});
+    console.log(usuario)
+    User.create(usuario).then((result)=>{
+        res.render("../views/usuario/cadastrar.html", {usuario});
     }).catch((err) => {
         console.log(err)
         let erro = err
-        res.render("usuario/cadastrar.html", {erro});
+        res.render("../views/usuario/cadastrar.html", {erro});
     })
 }
 
 function listarUsuarioView(req, res){
-    Usuario.findAll().then((pessoas)=>{
-        res.render("Usuario/listar.html", {pessoas});
+    User.findAll().then((usuarios)=>{
+        res.render("../views/usuario/ver.html", {usuarios});
     }).catch((err) => {
         console.log(err)
         let erro = err
-        res.render("Usuario/listar.html", {erro});
+        res.render("../views/usuario/ver.html", {erro});
     })
 }
 
 function editarUsuarioView(req, res){
     let id = req.params.id
     let usuario;
-    Pessoa.findByPk(id).then(function(usuario){
-        res.render("usuario/editar.html", {usuario});
+    User.findByPk(id).then(function(usuario){
+        res.render("../views/usuario/editar.html", {usuario});
     })
 }
 
@@ -53,10 +53,14 @@ function editarUsuario(req, res) {
         cpf: req.body.cpf,
         email: req.body.email,
         telefone: req.body.telefone,
-        altura: req.body.altura,
-        peso: req.body.peso
+        endereco: req.body.endereco,
+        pais: req.body.pais,
+        cidade: req.body.cidade,
+        bairro: req.body.bairro,
+        complemento: req.body.complemento,
+        numero: req.body.numero
     }
-    Pessoa.update(
+    User.update(
         usuario,
       {
         where: {
@@ -64,10 +68,10 @@ function editarUsuario(req, res) {
         },
       }
     ).then(function (sucesso) {
-        res.render("usuario/editar.html", {usuario, sucesso});
+        res.render("../views/usuario/editar.html", {usuario, sucesso});
     })
     .catch(function (erro) {
-        res.render("usuario/editar.html", {usuario, erro})
+        res.render("../views/usuario/editar.html", {usuario, erro})
     });
 
 }
