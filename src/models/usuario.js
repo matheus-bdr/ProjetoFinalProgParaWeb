@@ -32,7 +32,7 @@ const User = database.define('usuario', {
     },
     cidade: {
         type: Sequelize.STRING
-    },
+    }
 })
  
 module.exports = User;

@@ -1,4 +1,4 @@
-const Banco = require('../models/conta');
+const Conta = require('../models/conta');
 
 
 function criarContaView(req, res){
@@ -15,18 +15,19 @@ function criarConta(req, res){
         senha: req.body.senha
 
     }
-    console.log(conta)
-    Banco.create(conta).then((result)=>{
+    console.log(conta);
+
+    Conta.create(conta).then((result)=>{
         res.render("../views/conta/criar.html", {conta});
     }).catch((err) => {
         console.log(err)
         let erro = err
         res.render("../views/conta/criar.html", {erro});
     })
-}
+};
 
 function listarContaView(req, res){
-    Banco.findAll().then((contas)=>{
+    Conta.findAll().then((contas)=>{
         res.render("../views/conta/ver.html", {contas});
     }).catch((err) => {
         console.log(err)
@@ -36,9 +37,9 @@ function listarContaView(req, res){
 }
 
 function editarContaView(req, res){
-    let id = req.params.id
+    let idUnico = req.params.idUnico
     let conta;
-    Banco.findByPk(id).then(function(conta){
+    Conta.findByPk(idUnico).then(function(conta){
         res.render("../views/conta/editar.html", {conta});
     })
 }
@@ -53,11 +54,11 @@ function editarConta(req, res) {
         senha: req.body.senha
     }
 
-    Banco.update(
+    Conta.update(
         conta,
       {
         where: {
-          id: req.body.id,
+            idUnico: req.body.idUnico,
         },
       }
     ).then(function (sucesso) {
