@@ -33,7 +33,7 @@ const Conta = database.define('conta', {
     senha:{
         type: Sequelize.STRING,
         allowNull: false
-    }
+    },
 });
  
 module.exports = Conta;

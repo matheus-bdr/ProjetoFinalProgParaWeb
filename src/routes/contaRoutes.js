@@ -11,7 +11,7 @@ router.get('/conta/listar', contaController.listarContaView);
 router.get('/conta/editar/:id', contaController.editarContaView);
 router.post('/conta/editar', contaController.editarConta);
 
-router.get('/conta/movimentacoes/:id', contaController.editarContaView);
-router.post('/conta/movimentacoes', contaController.editarConta);
+router.get('/conta/movimentacoes/:id', contaController.movimentaContaView);
+router.post('/conta/movimentacoes', contaController.movimentaConta);
 
 module.exports = router;

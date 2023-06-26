@@ -119,7 +119,7 @@
         </div>
         <div class="col-4">
           <h1>Saldo:</h1>
-          <h3 class="cor3txt">R$ 300,00</h3>
+          <h3 class="cor3txt">R${{saldo}}</h3>
         </div>
       </div>
       <form method="post" action="/conta/movimentacoes">
@@ -152,6 +152,11 @@
               <label class="form-label " for="destinatarioTransferencia">destinatário</label>
               <input class="form-control formsCor " type="text" id="destinatarioTransferencia"
                 name="destinatarioTransferencia">
+            </div>
+            <div>
+              <label class="form-label " for="senha">senha</label>
+              <input class="form-control formsCor " type="password" id="senha"
+                name="senha">
             </div>
           </div>
         </div>
