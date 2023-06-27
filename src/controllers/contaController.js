@@ -1,3 +1,4 @@
+const { where } = require('sequelize');
 const Conta = require('../models/conta');
 
 
@@ -37,14 +38,6 @@ function listarContaView(req, res) {
     })
 }
 
-function editarContaView(req, res) {
-    let idUnico = req.params.idUnico
-    let conta;
-    Conta.findByPk(idUnico).then(function (conta) {
-        res.render("../views/conta/editar.html", { conta });
-    })
-}
-
 function editarConta(req, res) {
     let conta = {
         nome: req.body.nome,
@@ -54,6 +47,7 @@ function editarConta(req, res) {
         contatype: req.body.tipoDeConta,
         senha: req.body.senha
     }
+
     Conta.update(
         conta,
         {
@@ -69,16 +63,25 @@ function editarConta(req, res) {
         });
 
 }
-function movimentaContaView(req, res) {
+function editarContaView(req, res) {
     let idUnico = req.params.idUnico
     let conta;
     Conta.findByPk(idUnico).then(function (conta) {
-        res.render("../views/conta/movimentacoes.html", { conta });
+        res.render("../views/conta/editar.html", { conta });
     })
 }
 
-function movimentaConta(req, res) {
+function movimentaContaView(req, res) {
+            let idUnico = req.params.idUnico
+            let conta;
+            Conta.findByPk(idUnico).then(function (conta) {
+                res.render("../views/conta/movimentacoes.html", { conta });
+            })
+        }
+
+ function movimentaConta(req, res) {
     let conta = {
+        idUnico:req.body.idUnico,
         nome: req.body.nome,
         valor: req.body.valor,
         dataTranferencia: req.body.dataTranferencia,
@@ -87,23 +90,30 @@ function movimentaConta(req, res) {
         senha: req.body.senha
     }
     
-        Conta.update(
-            conta,
-            {
-                where: {
-                    idUnico: req.body.idUnico,
-                },
-            }
-        ).then(function (sucesso) {
-            res.render("../views/conta/movimentacoes.html", { conta, sucesso });
-        })
-            .catch(function (erro) {
-                res.render("../views/conta/movimentacoes.html", { conta, erro })
-            });
+    let idUnico = req.params.idUnico
+    Conta.findByPk(idUnico).then( function (conta1) {
+        const contaPrimaria =  Conta.findByPk(idUnico);
+        if (contaPrimaria.saldo < conta.valor && conta.valor > 0) {
+            contaPrimaria.saldo = contaPrimaria.saldo - valor;
 
+            Conta.update(
+                conta,contaPrimaria,
+                {
+                    where: {
+                        idUnico: req.body.idUnico,
+                    },
+                }
+            ).then(function (sucesso) {
+                res.render("../views/conta/movimentacoes.html", { conta, sucesso });
+            })
+                .catch(function (erro) {
+                    res.render("../views/conta/movimentacoes.html", { conta, erro })
+                });
+
+        }
+    })
     
 }
-
 
 module.exports = {
     criarContaView,
@@ -113,4 +123,5 @@ module.exports = {
     listarContaView,
     editarContaView,
     editarConta,
+
 };
